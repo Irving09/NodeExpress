@@ -1,7 +1,6 @@
 {
   "name": "NodeExpress",
   "version": "1.0.0",
-  "description": "",
   "main": "meadowlark.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +12,17 @@
     "express-handlebars": "^2.0.0",
     "express3-handlebars": "^0.5.2",
     "lodash": "^3.7.0"
-  }
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Irving09/NodeExpress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Irving09/NodeExpress/issues"
+  },
+  "homepage": "https://github.com/Irving09/NodeExpress"
 }

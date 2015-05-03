@@ -1,4 +1,4 @@
-//TODO npm install express3-handlebars --save
+//TODO npm install mocha --save-dev
 var express  	= require('express');
 var handlebars  = require('express3-handlebars').create({ defaultLayout : 'main'});
 var fortune 	= require('./libs/fortune.js');
@@ -23,13 +23,21 @@ any special handling
 */
 app.use(express.static(__dirname + '/public'));
 
+app.use(function(req, res, next) {
+	res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1';
+	next();
+});
+
 //Routes
 app.get('/', function (req, res) {
     res.render('home');
 });
 
 app.get('/about', function (req, res) {
-    res.render('about', { fortune : fortune.getFortune() });
+    res.render('about', {
+    	fortune : fortune.getFortune(),
+    	pageTestScript : '/qa/tests-about.js'
+    });
 });
 
 app.use(function(req, res, next) {
